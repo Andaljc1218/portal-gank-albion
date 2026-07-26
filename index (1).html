@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Portal Watch</title>
+<meta name="theme-color" content="#0b0d10">
+<meta name="description" content="Roads of Avalon / Black Zone territory, hideout, and road connection tracker.">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icon-192.png" type="image/png">
+<link rel="apple-touch-icon" href="icon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="brand">
+      <span class="mark">PORTAL WATCH</span>
+      <span class="sub">Roads of Avalon / Black Zone Tracker</span>
+    </div>
+    <input class="search" id="search" type="text" placeholder="Search zone...">
+    <div class="guild-search-wrap">
+      <input class="search" id="guildSearch" type="text" placeholder="Search guild owner...">
+      <div class="guild-results" id="guildResults"></div>
+    </div>
+    <div class="nav-menu-wrap">
+      <button class="btn" id="navMenuBtn">Menu ▾</button>
+      <div class="nav-menu-dropdown" id="navMenuDropdown">
+        <button class="nav-menu-item" id="guildSummaryBtn">Guild Summary</button>
+        <button class="nav-menu-item" id="roaHoSummaryBtn">ROA HO Summary</button>
+        <button class="nav-menu-item" id="exportBtn">Export data</button>
+        <button class="nav-menu-item" id="importBtn">Import data</button>
+        <input type="file" id="importFileInput" accept="application/json" style="display:none;">
+        <div class="nav-menu-divider"></div>
+        <button class="nav-menu-item danger" id="seasonResetBtn">Season reset</button>
+      </div>
+    </div>
+  </header>
+  <div class="tabs" id="tabs"></div>
+  <main>
+    <div class="mapzone" id="mapzone">
+      <div class="grid-bg"></div>
+      <svg id="svg" viewBox="0 0 900 620" preserveAspectRatio="xMidYMid meet"></svg>
+      <div class="tooltip" id="tooltip"></div>
+      <div class="zoom-controls">
+        <button class="zoom-btn" id="fullscreenBtn" title="Fullscreen">⛶</button>
+        <button class="zoom-btn" id="zoomInBtn" title="Zoom in">+</button>
+        <button class="zoom-btn" id="zoomOutBtn" title="Zoom out">−</button>
+        <button class="zoom-btn wide" id="fitBtn" title="Fit to view">Fit</button>
+      </div>
+    </div>
+    <div class="unmapped">
+      <div class="legend-section">
+        <h4>Legend <button class="icon-btn" id="addLegendBtn" title="Add color">+</button></h4>
+        <div id="legendList"></div>
+      </div>
+      <h4>Recently Mapped</h4>
+      <div id="unmappedList"></div>
+    </div>
+    <div class="panel" id="panel">
+      <div class="panel-empty">Click a zone on the map<br>to open its record.</div>
+    </div>
+  </main>
+</div>
+
+<script src="app.js"></script>
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('sw.js').catch(err => console.warn('SW registration failed:', err));
+    });
+  }
+</script>
+</body>
+</html>
