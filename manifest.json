@@ -1,6 +1,6 @@
 {
-  "name": "Portal Watch — Roads of Avalon Tracker",
-  "short_name": "Portal Watch",
+  "name": "PORTAL GANK — Roads of Avalon Tracker",
+  "short_name": "PORTAL GANK",
   "description": "Black zone / Roads of Avalon territory, hideout, and road connection tracker.",
   "start_url": "./index.html",
   "scope": "./",

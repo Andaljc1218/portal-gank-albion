@@ -333,7 +333,7 @@ async function loadData(){
       }
     }
   }catch(e){
-    console.error('Portal Watch: saved data was corrupt, reseeding.', e);
+    console.error('PORTAL GANK: saved data was corrupt, reseeding.', e);
   }
   if(!loaded){
     state = { zones:{} };
@@ -954,7 +954,7 @@ function showRoaHoSummary(){
       <div class="mp-head">
         <div class="mp-head-text">
           <div class="mp-zone-name">ROA HO Summary</div>
-          <div class="mp-zone-cluster">Hideouts logged at the portal watch points</div>
+          <div class="mp-zone-cluster">Hideouts logged at the PORTAL GANK points</div>
         </div>
         <button class="icon-btn x" id="roaHoSummaryClose">✕</button>
       </div>
@@ -1888,12 +1888,12 @@ async function importDataFromFile(file){
   try{
     parsed = JSON.parse(await file.text());
   }catch(e){
-    alert("Could not read that file — make sure it's a valid Portal Watch export (.json).");
+    alert("Could not read that file — make sure it's a valid PORTAL GANK export (.json).");
     return;
   }
   const incoming = parsed && parsed.state ? parsed.state : parsed; // accept a raw state export too
   if(!incoming || typeof incoming !== 'object' || !incoming.zones || typeof incoming.zones !== 'object'){
-    alert("That file doesn't look like a Portal Watch export.");
+    alert("That file doesn't look like a PORTAL GANK export.");
     return;
   }
   const ok = confirm('Importing will REPLACE all current data on this device with the contents of this file. This cannot be undone. Continue?');
